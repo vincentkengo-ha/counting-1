@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 
-import { CommonStyles } from "../styles/CommonStyles";
 import { CountButton } from "./CountButton";
+import { CommonStyles } from "../styles/CommonStyles";
 
 export const CountableRow = ({ countable, changeCounts, index }) => (
   <View style={CommonStyles.row}>

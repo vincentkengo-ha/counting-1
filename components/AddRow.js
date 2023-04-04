@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { View, TextInput } from "react-native";
 
-import { CommonStyles } from "../styles/CommonStyles";
 import { CountButton } from "./CountButton";
+import { CommonStyles } from "../styles/CommonStyles";
 
 export const AddRow = ({ addNewCountable }) => {
   const [name, setName] = useState("");
