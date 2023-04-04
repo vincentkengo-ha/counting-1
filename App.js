@@ -18,6 +18,15 @@ const intialCountables = [
   { name: "Woodpecker", count: 3 },
 ];
 
+// From https://javascript.info/currying-partials
+function curry(f) {
+  return function (a) {
+    return function (b) {
+      return f(a, b);
+    };
+  };
+}
+
 export default function App() {
   const [countables, setCountables] = useState(intialCountables);
 
@@ -25,7 +34,7 @@ export default function App() {
     loadCountables().then((result) => setCountables(result));
   }, []);
 
-  const changeCounts = (amount, index) => {
+  const changeCounts = (index, amount) => {
     const newState = [...countables];
     newState[index].count += amount;
     setCountables(newState);
@@ -50,8 +59,7 @@ export default function App() {
             <CountableRow
               countable={countable}
               key={countable.name}
-              changeCounts={changeCounts}
-              index={index}
+              changeCounts={curry(changeCounts)(index)}
             />
           ))}
           <View style={{ flex: 1 }} />
