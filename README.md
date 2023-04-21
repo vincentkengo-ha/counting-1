@@ -1,9 +1,21 @@
-# counting
-Counting app for the Cross-Platform course.
+Improve the layout of AddRow x
 
-Fork this repository _or_ download the v1 release and then submit the modified version on Classroom.
+Prevent duplicate names ✔
 
-To run:
-1) Install dependencies: ```npm install```
+Prevent negative points (disable the '-' button when count === 0) ✔
 
-2) Start the app: ```npx expo start```
+Prevent items with empty names ✔
+
+Clear the TextInput after adding an item
+
+Automatically hide the soft keyboard after adding an item ✔
+
+Keep the list sorted according to names ✔
+
+Show an alternative view when the list is empty (E.g. "No items yet, add something!")
+
+Add a possibility to remove items
+
+Add a possibility to edit names
+
+Feel free to add any additional features/improvements!

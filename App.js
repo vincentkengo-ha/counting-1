@@ -27,13 +27,38 @@ export default function App() {
 
   const changeCounts = (amount, index) => {
     const newState = [...countables];
+    if (newState[index].count === 0 && amount === -1) {
+      return;
+    }
     newState[index].count += amount;
     setCountables(newState);
     saveCountables(newState);
   };
 
   const addNewCountable = (name) => {
+    if (
+      (countables.some((c) => c.name === name) && countables.length > 0) ||
+      name.length === 0
+    ) {
+      name = "";
+      return;
+    }
     const newState = [...countables, { name, count: 0 }];
+    newState.sort(function (a, b) {
+      if (a.name < b.name) {
+        return -1;
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    });
+    setCountables(newState);
+    saveCountables(newState);
+  };
+
+  const removeCountable = (name) => {
+    const newState = countables.filter((filtered) => filtered.name !== name);
     setCountables(newState);
     saveCountables(newState);
   };
